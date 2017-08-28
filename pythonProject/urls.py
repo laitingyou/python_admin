@@ -16,10 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from . import view,infodb
 
+
 # urlpatterns = [
 #     url(r'^admin/', admin.site.urls),
 # ]
+
 urlpatterns = [
     url(r'^$', view.hello),
-    url(r'^home$', infodb.infodb),
+    # url(r'^home$', )
 ]
