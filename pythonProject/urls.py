@@ -23,5 +23,5 @@ from . import view,infodb
 
 urlpatterns = [
     url(r'^$', view.hello),
-    # url(r'^home$', )
+    url(r'^home$', view.home),
 ]
