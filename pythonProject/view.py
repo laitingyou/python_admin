@@ -1,13 +1,15 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 import json
-from Constroller.Socket import MyHTMLParser
+import httplib
+data = [{'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5}]
+jsons=json.dumps(data)
 def hello(request):
-    content={}
-    return render(request,'index.html',content)
-def home(request):
-    data = [{'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5}]
-    jsons=json.dumps(data)
-    parser = MyHTMLParser()
+    http_client=httplib.HTTPConnection('baidu.com',80,timeout=20)
+    http_client.request('GET', '')
+    r = http_client.getresponse()
+    return HttpResponse(r)
 
-    return HttpResponse(parser.feed('<html><head></head><body><p>Some <a href=\"#\">html</a> tutorial...<br>END</p></body></html>'))
+def home(request):
+
+
